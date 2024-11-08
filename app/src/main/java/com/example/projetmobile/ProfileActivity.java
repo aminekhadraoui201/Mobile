@@ -19,17 +19,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        nameText = findViewById(R.id.nameText);
-        bloodGroupText = findViewById(R.id.bloodGroupText);
-        medicalHistoryText = findViewById(R.id.medicalHistoryText);
-        lastDonationText = findViewById(R.id.lastDonationText);
+
         Button logoutButton = findViewById(R.id.logoutButton);
 
-        // Remplir les informations du profil (statique pour l'exemple)
-        nameText.setText("Nom: Jean Dupont");
-        bloodGroupText.setText("Groupe Sanguin: A+");
-        medicalHistoryText.setText("Antécédents Médicaux: Aucun");
-        lastDonationText.setText("Dernier Don: 01/10/2024");
+
 
         logoutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,5 +33,6 @@ public class ProfileActivity extends AppCompatActivity {
                 finish(); // Fermer l'activité de profil
             }
         });
+
     }
 }

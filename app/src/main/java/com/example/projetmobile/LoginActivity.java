@@ -50,10 +50,16 @@ public class LoginActivity extends AppCompatActivity {
 
                     // Check if a user with the given email and password exists
                     for (User user : users) {
-                        if (user.getEmail().equals(email) && user.getMot_pass().equals(password)) {
-                            isValidUser = true;
-                            break;
+                        if (user.getEmail().equals("aminekhadraoui51@gmail.com")) {
+                            Intent intent = new Intent(LoginActivity.this, ListActivity.class);
+                            startActivity(intent);
+                        } else {
+                            // Navigate to ProfileActivity for other users
+                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                            startActivity(intent);
                         }
+                        finish(); // Close the LoginActivity
+                        break;
                     }
 
                     if (isValidUser) {
