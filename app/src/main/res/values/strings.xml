@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ProjetMobile</string>
+    <string-array name="role">
+        <item>Hopital</item>
+        <item>Donneur</item>
+    </string-array>
+
+</resources>

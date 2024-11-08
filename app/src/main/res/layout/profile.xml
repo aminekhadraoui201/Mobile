@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/lightGray">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profil du Donneur"
+        android:textSize="28sp"
+        android:textColor="#C72C41"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom: Jean Dupont"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/bloodGroupText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Groupe Sanguin: A+"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/medicalHistoryText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Antécédents Médicaux: Aucun"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp" />
+
+    <TextView
+        android:id="@+id/lastDonationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dernier Don: 01/10/2024"
+        android:textSize="18sp"
+        android:layout_marginBottom="24dp" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Modifier les Informations"
+        android:backgroundTint="#C72C41"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="8dp"
+        android:padding="12dp" />
+
+    <Button
+        android:id="@+id/logoutButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Déconnexion"
+        android:backgroundTint="#A71C2B"
+        android:textColor="#FFFFFF"
+        android:padding="12dp" />
+</LinearLayout>
