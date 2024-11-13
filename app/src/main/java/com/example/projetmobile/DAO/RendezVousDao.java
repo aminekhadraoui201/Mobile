@@ -1,10 +1,12 @@
-package com.example.projetmobile.Entite;
+package com.example.projetmobile.DAO;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import com.example.projetmobile.Entite.RendezVous;
 
 import java.util.List;
 
@@ -23,15 +25,15 @@ public interface RendezVousDao {
     @Delete
     void delete(RendezVous rendezVous);
 
-    // Get a specific RendezVous by ID
-    @Query("SELECT * FROM rendezvous WHERE uid = :uid")
-    RendezVous getRendezVousById(int uid);
-
     // Get all RendezVous records
     @Query("SELECT * FROM rendezvous")
     List<RendezVous> getAllRendezVous();
 
-    // Delete all records (optional)
+    // Get a specific RendezVous by ID
+    @Query("SELECT * FROM rendezvous WHERE uid = :uid")
+    RendezVous getRendezVousById(int uid);
+
+    // Delete all RendezVous records
     @Query("DELETE FROM rendezvous")
     void deleteAll();
 }

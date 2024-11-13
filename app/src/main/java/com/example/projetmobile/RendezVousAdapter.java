@@ -1,11 +1,16 @@
 package com.example.projetmobile;
 
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.projetmobile.Entite.RendezVous;
+
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class RendezVousAdapter extends RecyclerView.Adapter<RendezVousAdapter.RendezVousViewHolder> {
@@ -18,21 +23,25 @@ public class RendezVousAdapter extends RecyclerView.Adapter<RendezVousAdapter.Re
 
     @Override
     public RendezVousViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflate the item layout (item_rendezvous.xml)
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rendezvous, parent, false);
         return new RendezVousViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RendezVousViewHolder holder, int position) {
-        // Get the current RendezVous item
         RendezVous rendezVous = rendezVousList.get(position);
-
-        // Set the data for each TextView
         holder.fullNameTextView.setText(rendezVous.getFullName());
         holder.cityTextView.setText(rendezVous.getCity());
         holder.hospitalNameTextView.setText(rendezVous.getHospitalName());
-        holder.dateTextView.setText(rendezVous.getDate().toString());
+
+        // Format the LocalDateTime to a readable date string
+        DateTimeFormatter formatter = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            holder.dateTextView.setText(rendezVous.getDate().format(formatter));
+        }
     }
 
     @Override
@@ -41,10 +50,7 @@ public class RendezVousAdapter extends RecyclerView.Adapter<RendezVousAdapter.Re
     }
 
     public static class RendezVousViewHolder extends RecyclerView.ViewHolder {
-        TextView fullNameTextView;
-        TextView cityTextView;
-        TextView hospitalNameTextView;
-        TextView dateTextView;
+        TextView fullNameTextView, cityTextView, hospitalNameTextView, dateTextView;
 
         public RendezVousViewHolder(View itemView) {
             super(itemView);

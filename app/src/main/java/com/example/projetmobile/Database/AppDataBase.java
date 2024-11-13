@@ -8,6 +8,8 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
+import com.example.projetmobile.DAO.DossierMedicaleDao;
+import com.example.projetmobile.DAO.RendezVousDao;
 import com.example.projetmobile.DAO.UserDao;
 import com.example.projetmobile.Entite.User;
 
@@ -27,5 +29,11 @@ public abstract UserDao userDao();
     }
 
 
+    public DossierMedicaleDao DossierMedicaleDao() {
+        return null;
+    }
 
+    public RendezVousDao rendezVousDao() {
+        return null;
+    }
 }

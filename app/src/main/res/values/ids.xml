@@ -10,4 +10,14 @@
     <item name="buttonSignIn" type="id" />
     <item name="buttonSignUp" type="id" />
     <item name="recyclerView" type="id" />
+    <item name="lastnameEditText" type="id" />
+    <item name="addressEditText" type="id" />
+    <item name="bloodTypeEditText" type="id" />
+    <item name="maladieEditText" type="id" />
+    <item name="phoneNumberEditText" type="id" />
+    <item name="addButton" type="id" />
+    <item name="nameTextView" type="id" />
+    <item name="lastnameTextView" type="id" />
+    <item name="bloodTypeTextView" type="id" />
+    <item name="phoneNumberTextView" type="id" />
 </resources>
