@@ -24,15 +24,29 @@
         android:layout_height="wrap_content"
         android:hint="Hospital Name" />
 
-    <EditText
-        android:id="@+id/dateEditText"
+    <!-- DatePicker for selecting date -->
+    <DatePicker
+        android:id="@+id/datePicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date (YYYY-MM-DD HH:MM)" />
+        android:calendarViewShown="false"
+        android:spinnersShown="true"
+        android:descendantFocusability="blocksDescendants" />
 
+    <!-- Button to add a new RendezVous -->
     <Button
         android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add RendezVous" />
+        android:text="Add RendezVous"
+        android:layout_gravity="center_horizontal"
+        android:backgroundTint="?attr/colorPrimary" />
+
+    <!-- RecyclerView to display the list of RendezVous -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp" />
 </LinearLayout>

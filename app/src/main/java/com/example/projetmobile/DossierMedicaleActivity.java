@@ -48,7 +48,7 @@ public class DossierMedicaleActivity extends AppCompatActivity {
 
         // Initialize database and DAO
         db = AppDataBase.getinstance(this);
-        dossierMedicaleDao = db.DossierMedicaleDao();
+        dossierMedicaleDao = db.dossierMedicaleDao();
 
         // Initialize the adapter and set it to the RecyclerView
         dossierList = new ArrayList<>();
