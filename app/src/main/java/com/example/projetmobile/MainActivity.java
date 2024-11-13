@@ -1,6 +1,11 @@
 package com.example.projetmobile;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +21,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
+    private Button btnFeedback;
+    private Button btnLogin;
+    private Button btnRegister;
     private AppDataBase appDataBase ;
 //    private UsersAdapter usersAdapter;
     private List<User> userList = new ArrayList<User>();
@@ -28,7 +35,37 @@ public class MainActivity extends AppCompatActivity {
 
         //appDataBase = AppDataBase.getinstance(this);
 
+// Initialisation des boutons
+        btnFeedback = findViewById(R.id.btnFeedback);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegister);
 
+        // Action pour ouvrir l'activité FeedBackAdd
+        btnFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FeedBackAdd.class);
+                startActivity(intent);
+            }
+        });
+
+        // Action pour ouvrir l'activité LoginActivity
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // Action pour ouvrir l'activité RegistActivity
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegistActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
 

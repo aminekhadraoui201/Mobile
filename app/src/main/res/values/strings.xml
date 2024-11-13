@@ -4,5 +4,21 @@
         <item>Hopital</item>
         <item>Donneur</item>
     </string-array>
+    <string-array name="blood_centers">
+        <item>Centre 1</item>
+        <item>Centre 2</item>
+        <item>Centre 3</item>
+    </string-array>
 
+    <!-- Tableau pour les groupes sanguins -->
+    <string-array name="blood_groups">
+        <item>O+</item>
+        <item>A+</item>
+        <item>B+</item>
+        <item>AB+</item>
+        <item>O-</item>
+        <item>A-</item>
+        <item>B-</item>
+        <item>AB-</item>
+    </string-array>
 </resources>

@@ -24,6 +24,17 @@ public class User {
     public User() {
     }
 
+    public User(int uid, String nom, String prenom, String email, String mot_pass, String datnaiss, String role, String lieu) {
+        this.uid = uid;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.mot_pass = mot_pass;
+        this.datnaiss = datnaiss;
+        this.role = role;
+        this.lieu = lieu;
+    }
+
     public User(String nom, String prenom, String email, String mot_pass, String datnaiss, String role, String lieu) {
         this.nom = nom;
         this.prenom = prenom;

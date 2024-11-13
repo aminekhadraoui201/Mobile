@@ -1,12 +1,14 @@
 package com.example.projetmobile;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,6 +45,18 @@ public class AdapterDonneur extends RecyclerView.Adapter<AdapterDonneur.MyViewHo
         User user = users.get(position);
         holder.nom.setText(String.valueOf(user.getNom()));
         holder.prenom.setText(String.valueOf(user.getPrenom()));
+        // Configurer le bouton "Supprimer"
+        holder.supp.setOnClickListener(v -> {
+            // Supprimer l'élément de la base de données
+            appDataBase.userDao().deleteUser(user);
+
+            // Supprimer l'élément de la liste (affichage)
+            users.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, users.size());
+
+
+        });
     }
 
 

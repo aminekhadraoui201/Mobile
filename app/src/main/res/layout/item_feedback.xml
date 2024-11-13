@@ -7,7 +7,8 @@
     android:layout_margin="8dp"
     android:radius="8dp"
     app:cardElevation="4dp"
-    >
+
+    tools:context=".FeedBackAdd">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,29 +18,39 @@
 
         <!-- Objet du Feedback -->
         <TextView
-            android:id="@+id/nom"
+            android:id="@+id/feedback_objet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nom"
+            android:text="Objet du feedback"
             android:textSize="18sp"
             android:textStyle="bold"
             android:paddingBottom="8dp" />
 
         <!-- Description du Feedback -->
         <TextView
-            android:id="@+id/prenom"
+            android:id="@+id/feedback_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Prenom"
+            android:text="Description du feedback"
             android:textSize="14sp"
             android:paddingBottom="8dp" />
 
-        <!-- Bouton pour changer l'état -->
-        <Button
-            android:id="@+id/supp"
+        <!-- Etat du Feedback -->
+        <TextView
+            android:id="@+id/feedback_etat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Supprimer"
+            android:text="État: non"
+            android:textSize="14sp"
+            android:paddingBottom="16dp"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <!-- Bouton pour changer l'état -->
+        <Button
+            android:id="@+id/btn_change_etat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Changer l'état"
             android:backgroundTint="@color/darkRed" />
 
     </LinearLayout>

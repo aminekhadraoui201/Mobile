@@ -5,171 +5,165 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bakk"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="10dp">
 
+  <!-- Toolbar -->
+  <include
+      android:id="@+id/toolbar"
+      layout="@layout/toolbar"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="127dp"
-        android:layout_height="55dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="79dp"
-        android:layout_marginEnd="104dp"
-        android:layout_marginBottom="36dp"
-        android:text="Profil "
-        android:textColor="#C72C41"
-        android:textSize="35sp"
-        app:layout_constraintBottom_toTopOf="@+id/prenom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+  <!-- Titre Profil -->
 
-    <EditText
-        android:id="@+id/nom"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="36dp"
-        android:inputType="text"
-        android:text="Nom: Jean Dupont"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/prenom"
-        app:layout_constraintEnd_toStartOf="@+id/prenom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/prenom"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+  <!-- Nom -->
 
-    <EditText
-        android:id="@+id/prenom"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="61dp"
-        android:inputType="text"
-        android:text="Groupe Sanguin: A+"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nom"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:layout_marginTop="4dp"
+      android:text="Profil"
+      android:textColor="#C72C41"
+      android:textSize="35sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.447"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <EditText
-        android:id="@+id/lieu"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="331dp"
-        android:layout_marginBottom="202dp"
-        android:inputType="text"
-        android:text="Groupe Sanguin: A+"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/logoutButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/email"
-        app:layout_constraintTop_toTopOf="parent" />
+  <EditText
+      android:id="@+id/nom"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="2dp"
+      android:textSize="18sp"
+      android:inputType="text"
+      app:layout_constraintTop_toBottomOf="@+id/textView"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="16dp"
-        android:inputType="textEmailAddress"
-        android:text="Antécédents Médicaux: Aucun"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/cpass"
-        app:layout_constraintEnd_toStartOf="@+id/lieu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+  <!-- Prénom -->
+  <EditText
+      android:id="@+id/prenom"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:textSize="18sp"
+      android:inputType="text"
+      app:layout_constraintTop_toBottomOf="@+id/nom"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/pass"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="1dp"
-        android:inputType="textVisiblePassword"
-        android:text="Dernier Don: 01/10/2024"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cpass"
-        app:layout_constraintEnd_toStartOf="@+id/cpass"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+  <!-- Date de naissance -->
+  <EditText
+      android:id="@+id/editTextDate"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:inputType="date"
+      app:layout_constraintTop_toBottomOf="@+id/prenom"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/cpass"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="36dp"
-        android:inputType="textVisiblePassword"
-        android:text="Dernier Don: 01/10/2024"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/medicale"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/pass"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+  <!-- Email -->
+  <EditText
+      android:id="@+id/email"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:textSize="18sp"
+      android:inputType="textEmailAddress"
+      app:layout_constraintTop_toBottomOf="@+id/editTextDate"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/editButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginEnd="153dp"
-        android:layout_marginBottom="75dp"
-        android:backgroundTint="#C72C41"
-        android:padding="12dp"
-        android:text="Modifier les Informations"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/logoutButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicale" />
+  <!-- Lieu -->
+  <EditText
+      android:id="@+id/lieu"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:textSize="18sp"
+      android:inputType="text"
+      app:layout_constraintTop_toBottomOf="@+id/email"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/medicale"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="#C72C41"
-        android:padding="12dp"
-        android:text="les Informations du dossier medicale"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/editButton"
-        app:layout_constraintEnd_toEndOf="@+id/logoutButton"
-        app:layout_constraintStart_toStartOf="@+id/editButton"
-        app:layout_constraintTop_toBottomOf="@+id/cpass" />
+  <!-- Mot de passe -->
+  <EditText
+      android:id="@+id/pass"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:textSize="18sp"
+      android:inputType="textVisiblePassword"
+      app:layout_constraintTop_toBottomOf="@+id/lieu"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
-    <Button
-        android:id="@+id/logoutButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="68dp"
-        android:backgroundTint="#A71C2B"
-        android:padding="12dp"
-        android:text="Déconnexion"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/editButton"
-        app:layout_constraintTop_toBottomOf="@+id/lieu" />
+  <!-- Confirmation du mot de passe -->
+  <EditText
+      android:id="@+id/cpass"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      android:textSize="18sp"
+      android:inputType="textVisiblePassword"
+      app:layout_constraintTop_toBottomOf="@+id/pass"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="59dp"
-        android:ems="10"
-        android:inputType="date"
-        app:layout_constraintBottom_toTopOf="@+id/email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prenom" />
+  <!-- Bouton modifier les informations -->
+  <Button
+      android:id="@+id/editButton"
+      android:layout_width="112dp"
+      android:layout_height="125dp"
+      android:layout_marginTop="24dp"
+      android:backgroundTint="#C72C41"
+      android:text="Modifier les Informations"
+      android:textColor="#FFFFFF"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cpass" />
+
+  <!-- Bouton informations du dossier médical -->
+
+  <!-- Bouton Déconnexion -->
+
+  <Button
+      android:id="@+id/medicale"
+      android:layout_width="125dp"
+      android:layout_height="126dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="24dp"
+      android:backgroundTint="#C72C41"
+      android:text="Les Informations du dossier médical"
+      android:textColor="#FFFFFF"
+      app:layout_constraintStart_toEndOf="@+id/editButton"
+      app:layout_constraintTop_toBottomOf="@+id/cpass" />
+
+  <Button
+      android:id="@+id/rdv"
+      android:layout_width="128dp"
+      android:layout_height="126dp"
+      android:layout_marginTop="24dp"
+      android:layout_marginEnd="12dp"
+      android:backgroundTint="#C72C41"
+      android:text="Prise de Rende-Vous"
+      android:textColor="#FFFFFF"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cpass" />
+
+  <Button
+      android:id="@+id/logoutButton"
+      android:layout_width="128dp"
+      android:layout_height="51dp"
+      android:layout_marginStart="276dp"
+      android:layout_marginTop="152dp"
+      android:backgroundTint="@color/redBlood"
+      android:text="Déconnexion"
+      android:textColor="#FFFFFF"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/cpass" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

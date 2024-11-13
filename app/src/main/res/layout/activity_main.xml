@@ -2,18 +2,90 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/doooo"
+
+
     tools:context=".MainActivity">
 
+    <!-- Titre principal de l'application -->
+
+    <!-- Description de l'application -->
+
+    <!-- Bouton Login -->
+
+    <!-- Bouton Register -->
+
+    <!-- Bouton Feedback -->
+
     <TextView
+        android:id="@+id/txtAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="56dp"
+        android:gravity="center"
+        android:text="Don de Sang"
+        android:textColor="@color/darkRed"
+        android:textSize="32sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="311dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="Se Connecter"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegister" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="312dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="332dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="S'inscrire"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppTitle" />
+
+    <Button
+        android:id="@+id/btnFeedback"
+        android:layout_width="315dp"
+        android:layout_height="42dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="19dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="Feedback"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="425dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="44dp"
+        android:fontFamily="serif"
+        android:text="
+
+La danse de sang symbolise des rituels ou événements violents où le sang représente sacrifice,
+souffrance ou passion.
+ Elle est souvent associée à des rites culturels ou à des thèmes de rébellion et de catharsis."
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

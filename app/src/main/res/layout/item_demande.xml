@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- TextView for Blood Center -->
+    <TextView
+        android:id="@+id/text_blood_center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Center:"
+        android:textSize="16sp" />
+
+    <!-- TextView for Blood Group -->
+    <TextView
+        android:id="@+id/text_blood_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blood Group:"
+        android:textSize="16sp" />
+
+    <!-- TextView for Quantity -->
+    <TextView
+        android:id="@+id/text_quantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantity:"
+        android:textSize="16sp" />
+
+    <!-- TextView for Date -->
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date:"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/text_urgent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Urgent"
+        android:textColor="#C72C41"
+        android:visibility="gone" />
+
+
+    <!-- Button for Modifying the Request -->
+    <Button
+        android:id="@+id/button_modify_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modify"
+        android:backgroundTint="#C72C41"
+        android:layout_marginTop="8dp"/>
+
+    <!-- Button for Deleting the Request -->
+    <Button
+        android:id="@+id/button_delete_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:backgroundTint="#C72C41"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

@@ -2,6 +2,7 @@ package com.example.projetmobile;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,35 +45,62 @@ public class LoginActivity extends AppCompatActivity {
                 if (email.isEmpty() || password.isEmpty()) {
                     errorText.setText("Veuillez remplir tous les champs.");
                 } else {
-                    // Query the database for the user with the given email and password
-                    List<User> users = appDataBase.userDao().getAll(); // Get all users from the database
-                    boolean isValidUser = false;
+                    // Récupérer tous les utilisateurs depuis la base de données
+                    List<User> users = appDataBase.userDao().getAll();
 
-                    // Check if a user with the given email and password exists
+                    // Vérification si l'email et le mot de passe correspondent à un utilisateur
                     for (User user : users) {
-                        if (user.getEmail().equals("aminekhadraoui51@gmail.com")) {
-                            Intent intent = new Intent(LoginActivity.this, ListActivity.class);
+                        // Vérification pour l'admin
+                        if (email.equals("aminekhadraoui51@gmail.com") && password.equals("000000*")) {
+                            // Si l'email et le mot de passe sont "admin", on redirige vers ListActivity
+                            Intent intent = new Intent(LoginActivity.this, Admin.class);
                             startActivity(intent);
-                        } else {
-                            // Navigate to ProfileActivity for other users
-                            Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
-                            startActivity(intent);
+                            finish(); // Fermer LoginActivity
+                            return;
                         }
-                        finish(); // Close the LoginActivity
-                        break;
+
+                        // Vérification pour les autres utilisateurs
+                        if (user.getEmail().equals(email) && user.getMot_pass().equals(password)) {
+                            // L'utilisateur est valide, on redirige vers ProfileActivity
+                            String r=user.getRole();
+                            if (r.equals("Hopital")){ Intent intent = new Intent(LoginActivity.this, ProfileActivity.class);
+                                Log.e("test", "Updated User: ID=" + user.getUid() + ", Name=" + user.getNom());
+
+                                intent.putExtra("user_id", user.getUid());
+                                intent.putExtra("user_nom", user.getNom());
+                                intent.putExtra("user_prenom", user.getPrenom());
+                                intent.putExtra("user_email", user.getEmail());
+                                intent.putExtra("user_datnaiss", user.getDatnaiss());
+                                intent.putExtra("user_Mot_pass", user.getMot_pass());
+                                intent.putExtra("user_lieu", user.getLieu());
+                                startActivity(intent);
+                                finish(); // Fermer LoginActivity
+                                return;}else{ Intent intent = new Intent(LoginActivity.this, HopitalActivity.class);
+                                Log.e("test", "Updated User: ID=" + user.getUid() + ", Name=" + user.getNom());
+
+                                intent.putExtra("user_id", user.getUid());
+                                intent.putExtra("user_nom", user.getNom());
+                                intent.putExtra("user_prenom", user.getPrenom());
+                                intent.putExtra("user_email", user.getEmail());
+                                intent.putExtra("user_datnaiss", user.getDatnaiss());
+                                intent.putExtra("user_Mot_pass", user.getMot_pass());
+                                intent.putExtra("user_lieu", user.getLieu());
+                                startActivity(intent);
+                                finish(); // Fermer LoginActivity
+                                return;}
+
+
+
+
+
+                        }
                     }
 
-                    if (isValidUser) {
-                        // If valid, navigate to ListActivity
-                        Intent intent = new Intent(LoginActivity.this, ListActivity.class);
-                        startActivity(intent);
-                        finish(); // Close the LoginActivity
-                    } else {
-                        // If invalid, show error message
-                        errorText.setText("Email ou mot de passe incorrect.");
-                    }
+                    // Si aucun utilisateur n'est trouvé avec ces identifiants
+                    errorText.setText("Email ou mot de passe incorrect.");
                 }
             }
+
         });
     }
 }

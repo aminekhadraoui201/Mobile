@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/doooo"
+    tools:context=".Admin">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+
+    <Button
+        android:id="@+id/btnListeFeedback"
+        android:layout_width="187dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="Liste Des Feedback"
+        app:layout_constraintStart_toEndOf="@+id/btnListeRendezVous"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btnListeDonneurs"
+        android:layout_width="172dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="36dp"
+
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="Liste Des Donneurs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnListeRendezVous" />
+
+    <Button
+        android:id="@+id/btnListeRendezVous"
+        android:layout_width="169dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="Liste Des Rende-vous"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btnListeHopital"
+        android:layout_width="181dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="20dp"
+
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="Liste Des Hôpitaux"
+        app:layout_constraintStart_toEndOf="@+id/btnListeDonneurs"
+        app:layout_constraintTop_toBottomOf="@+id/btnListeFeedback" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="366dp"
+        android:layout_height="246dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="196dp"
+        android:layout_marginEnd="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="72dp"
+        android:text="Welcome Amine"
+        android:textColor="@color/darkRed"
+
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

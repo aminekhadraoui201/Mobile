@@ -3,6 +3,7 @@ package com.example.projetmobile;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,6 +17,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.projetmobile.Database.AppDataBase;
 import com.example.projetmobile.Entite.User;
+
+import java.util.Calendar;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class RegistActivity extends AppCompatActivity {
 
@@ -79,9 +84,27 @@ public class RegistActivity extends AppCompatActivity {
         int year = dateNaissance.getYear();
         String dateOfBirth = day + "/" + (month + 1) + "/" + year;
 
-        // Basic validation
-        if (userName.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty()) {
-            Toast.makeText(this, "Please fill all required fields", Toast.LENGTH_SHORT).show();
+        // Validation des champs
+        if (userName.isEmpty() || userPrenom.isEmpty() || userEmail.isEmpty() || userPassword.isEmpty() || userLieu.isEmpty()) {
+            Toast.makeText(this, "Tous les champs doivent être remplis.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validation de l'email (format simple)
+        if (!isValidEmail(userEmail)) {
+            Toast.makeText(this, "Veuillez entrer un email valide.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validation du mot de passe (longueur minimale de 6 caractères)
+        if (userPassword.length() < 6) {
+            Toast.makeText(this, "Le mot de passe doit comporter au moins 6 caractères.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Validation de l'âge (l'utilisateur doit avoir au moins 18 ans)
+        if (!isValidAge(year, month, day)) {
+            Toast.makeText(this, "Vous devez avoir au moins 18 ans pour vous inscrire.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -92,7 +115,30 @@ public class RegistActivity extends AppCompatActivity {
         Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
 
         // Redirect to MainActivity or login screen
-        startActivity(new Intent(RegistActivity.this, ListActivity.class));
+        startActivity(new Intent(RegistActivity.this, ProfileActivity.class));
         finish();
+    }
+    // Fonction pour valider le format de l'email
+    private boolean isValidEmail(String email) {
+        Pattern pattern = Patterns.EMAIL_ADDRESS;
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    // Fonction pour vérifier si l'utilisateur a au moins 18 ans
+    private boolean isValidAge(int year, int month, int day) {
+        Calendar calendar = Calendar.getInstance();
+        int currentYear = calendar.get(Calendar.YEAR);
+        int currentMonth = calendar.get(Calendar.MONTH) + 1; // Mois est 0-indexé
+        int currentDay = calendar.get(Calendar.DAY_OF_MONTH);
+
+        int age = currentYear - year;
+
+        // Si la personne n'a pas encore eu son anniversaire cette année, on réduit l'âge de 1
+        if (currentMonth < (month + 1) || (currentMonth == (month + 1) && currentDay < day)) {
+            age--;
+        }
+
+        return age >= 18;
     }
 }
