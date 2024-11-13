@@ -21,13 +21,16 @@ public class DossierMedicaleAdapter extends RecyclerView.Adapter<DossierMedicale
 
     @Override
     public DossierMedicaleViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_dossier_medicale, parent, false);
+        // Inflate the correct layout for each item (not the activity layout)
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_dossier_medicale, parent, false);
         return new DossierMedicaleViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(DossierMedicaleViewHolder holder, int position) {
         DossierMedicale dossier = dossierList.get(position);
+
+        // Set the data for each TextView
         holder.nameTextView.setText(dossier.getName());
         holder.lastnameTextView.setText(dossier.getLastname());
         holder.bloodTypeTextView.setText(dossier.getBloodType());
@@ -39,11 +42,13 @@ public class DossierMedicaleAdapter extends RecyclerView.Adapter<DossierMedicale
         return dossierList.size();
     }
 
+    // ViewHolder class for each item
     public static class DossierMedicaleViewHolder extends RecyclerView.ViewHolder {
         TextView nameTextView, lastnameTextView, bloodTypeTextView, phoneNumberTextView;
 
         public DossierMedicaleViewHolder(View itemView) {
             super(itemView);
+            // Initialize the views
             nameTextView = itemView.findViewById(R.id.nameTextView);
             lastnameTextView = itemView.findViewById(R.id.lastnameTextView);
             bloodTypeTextView = itemView.findViewById(R.id.bloodTypeTextView);

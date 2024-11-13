@@ -1,0 +1,67 @@
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <!-- Name Column -->
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" ></TextView>
+
+    <!-- Last Name Column -->
+    <TextView
+        android:id="@+id/lastnameTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Last Name"
+        android:textSize="16sp"
+        android:paddingEnd="16dp"
+        android:textAlignment="center"/>
+
+    <!-- Address Column -->
+    <TextView
+        android:id="@+id/addressTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Address"
+        android:textSize="16sp"
+        android:paddingEnd="16dp"
+        android:textAlignment="center"/>
+
+    <!-- Blood Type Column -->
+    <TextView
+        android:id="@+id/bloodTypeTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Blood Type"
+        android:textSize="16sp"
+        android:paddingEnd="16dp"
+        android:textAlignment="center"/>
+
+    <!-- Maladie Column -->
+    <TextView
+        android:id="@+id/maladieTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Maladie"
+        android:textSize="16sp"
+        android:paddingEnd="16dp"
+        android:textAlignment="center"/>
+
+    <!-- Phone Number Column -->
+    <TextView
+        android:id="@+id/phoneNumberTextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Phone Number"
+        android:textSize="16sp"
+        android:paddingEnd="16dp"
+        android:textAlignment="center"/>
+</TableRow>
