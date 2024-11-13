@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <!-- Table Layout to display all details horizontally -->
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:stretchColumns="1"
+        android:paddingBottom="16dp"
+        android:orientation="horizontal">
+
+        <!-- Row displaying Name, Last Name, Blood Type, Phone Number -->
+        <TableRow>
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name:"
+                android:textSize="16sp"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/nameValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginEnd="32dp"/>
+
+            <TextView
+                android:id="@+id/lastnameTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Last Name:"
+                android:textSize="16sp"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/lastnameValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginEnd="32dp" />
+
+            <TextView
+                android:id="@+id/bloodTypeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blood Type:"
+                android:textSize="16sp"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/bloodTypeValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_marginEnd="32dp" />
+
+            <TextView
+                android:id="@+id/phoneNumberTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number:"
+                android:textSize="16sp"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/maladieValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+            //
+            <TextView
+                android:id="@+id/maladieTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number:"
+                android:textSize="16sp"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/addValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/addTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone Number:"
+                android:textSize="16sp"
+                android:paddingEnd="8dp"
+                android:layout_marginEnd="16dp" />
+
+            <TextView
+                android:id="@+id/phoneNumberValueTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="editTextUsername" type="id" />
+    <item name="editTextPassword" type="id" />
+    <item name="editTextBirthdate" type="id" />
+    <item name="imageViewProfilePicture" type="id" />
+    <item name="btnPickProfilePicture" type="id" />
+    <item name="btnSignUp" type="id" />
+    <item name="textViewTitle" type="id" />
+    <item name="buttonSignIn" type="id" />
+    <item name="buttonSignUp" type="id" />
+    <item name="recyclerView" type="id" />
+    <item name="lastnameEditText" type="id" />
+    <item name="addressEditText" type="id" />
+    <item name="bloodTypeEditText" type="id" />
+    <item name="maladieEditText" type="id" />
+    <item name="phoneNumberEditText" type="id" />
+    <item name="addButton" type="id" />
+    <item name="nameTextView" type="id" />
+    <item name="lastnameTextView" type="id" />
+    <item name="bloodTypeTextView" type="id" />
+    <item name="phoneNumberTextView" type="id" />
+    <item name="fullNameTextView" type="id" />
+    <item name="cityTextView" type="id" />
+    <item name="hospitalNameTextView" type="id" />
+    <item name="dateTextView" type="id" />
+    <item name="fullNameEditText" type="id" />
+    <item name="noteEditText" type="id" />
+    <item name="typeRendezVousEditText" type="id" />
+    <item name="locationEditText" type="id" />
+    <item name="dateEditText" type="id" />
+</resources>

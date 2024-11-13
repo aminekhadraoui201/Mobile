@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- TableLayout to display the DossierMedicale data in a table format -->
+    <TableLayout
+        android:id="@+id/tableLayoutDossier"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:stretchColumns="1"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp">
+
+        <!-- Table headers for the columns -->
+        <TableRow
+            android:background="#FFEB3B"
+            android:padding="8dp">
+
+            <!-- Full Name Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Full Name"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:paddingEnd="16dp"
+                android:textAlignment="center"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Last Name Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Last Name"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:paddingEnd="16dp"
+                android:textAlignment="center"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Address Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Address"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:paddingEnd="16dp"
+                android:textAlignment="center"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Blood Type Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Blood Type"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:paddingEnd="16dp"
+                android:textAlignment="center"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Maladie Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Maladie"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:paddingEnd="16dp"
+                android:textAlignment="center"
+                android:layout_marginEnd="16dp"/>
+
+            <!-- Phone Number Column -->
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Phone Number"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:paddingEnd="16dp"
+                android:textAlignment="center"/>
+        </TableRow>
+
+        <!-- Table rows will be added dynamically here -->
+    </TableLayout>
+</LinearLayout>
