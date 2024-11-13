@@ -23,7 +23,7 @@ public class RendezVousAdapter extends RecyclerView.Adapter<RendezVousAdapter.Re
 
     @Override
     public RendezVousViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_rendezvous, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_rendezvous, parent, false);
         return new RendezVousViewHolder(view);
     }
 

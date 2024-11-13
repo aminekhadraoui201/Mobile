@@ -20,4 +20,8 @@
     <item name="lastnameTextView" type="id" />
     <item name="bloodTypeTextView" type="id" />
     <item name="phoneNumberTextView" type="id" />
+    <item name="fullNameTextView" type="id" />
+    <item name="cityTextView" type="id" />
+    <item name="hospitalNameTextView" type="id" />
+    <item name="dateTextView" type="id" />
 </resources>
