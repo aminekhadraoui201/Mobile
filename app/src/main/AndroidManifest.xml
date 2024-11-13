@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Add the POST_NOTIFICATIONS permission here -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -25,6 +28,7 @@
         <activity android:name=".LoginActivity" android:exported="true" />
         <activity android:name=".AddOrEditRequestActivity" android:exported="true" />
         <activity android:name=".ViewRequestsActivity" />
+
         <activity android:name=".ProfileActivity" />
 
     </application>

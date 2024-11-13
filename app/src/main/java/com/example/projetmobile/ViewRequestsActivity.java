@@ -1,18 +1,24 @@
 package com.example.projetmobile;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.example.projetmobile.adapter.DemandAdapter;
 import com.example.projetmobile.database.BloodDatabase;
 import com.example.projetmobile.Entite.BloodRequest;
+import com.example.projetmobile.Entite.NotificationHelper;
 
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -22,33 +28,27 @@ public class ViewRequestsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private DemandAdapter adapter;
+    private NotificationHelper notificationHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_requests);
 
-        // Use androidx.appcompat.widget.Toolbar here
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
-
-        // Enable the back arrow in the toolbar
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
-        // Handle the back arrow click to go back to the previous screen
         toolbar.setNavigationOnClickListener(v -> finish());
 
-        // Initialize the RecyclerView
         recyclerView = findViewById(R.id.recycler_view_demands);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Load the list of requests from the database
+        notificationHelper = new NotificationHelper(this);
+
         loadRequests();
     }
-
-
 
     private void loadRequests() {
         Executors.newSingleThreadExecutor().execute(() -> {
@@ -70,6 +70,8 @@ public class ViewRequestsActivity extends AppCompatActivity {
                             }
                         });
                         recyclerView.setAdapter(adapter);
+
+                        sendUrgentNotification(requests);  // Check for urgent requests after loading
                     }
                 });
             } catch (Exception e) {
@@ -78,10 +80,20 @@ public class ViewRequestsActivity extends AppCompatActivity {
             }
         });
     }
+    private void sendUrgentNotification(List<BloodRequest> requests) {
+        for (BloodRequest request : requests) {
+            if (request.isUrgent()) {
+                String title = "Urgent Blood Request";
+                String message = "Urgent blood needed at " + request.getCenter() + " for blood group " + request.getBloodGroup();
+                notificationHelper.sendUrgentRequestNotification(title, message);
+                break;  // Notify for the first urgent request only to avoid multiple notifications
+            }
+        }
+    }
 
     private void openEditRequestActivity(BloodRequest request) {
         Intent intent = new Intent(this, AddOrEditRequestActivity.class);
-        intent.putExtra("request", request); // Passing the request object to the activity
+        intent.putExtra("request", request);  // Passing the request object to the activity
         startActivity(intent);
     }
 
@@ -91,7 +103,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
                 BloodDatabase.getInstance(this).bloodRequestDao().deleteRequest(request);
                 runOnUiThread(() -> {
                     Toast.makeText(ViewRequestsActivity.this, "Request Deleted", Toast.LENGTH_SHORT).show();
-                    loadRequests(); // Refresh the list after deletion
+                    loadRequests();  // Refresh the list after deletion
                 });
             } catch (Exception e) {
                 Log.e("ViewRequestsActivity", "Error deleting request", e);
@@ -99,6 +111,8 @@ public class ViewRequestsActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     @Override
     protected void onResume() {
