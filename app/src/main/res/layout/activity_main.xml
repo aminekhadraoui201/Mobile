@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <Button
+        android:id="@+id/button_view_requests"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View Blood Requests"
+        android:backgroundTint="#C72C41" />
+
+    <Button
+        android:id="@+id/button_add_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Blood Request"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#C72C41" />
+</LinearLayout>

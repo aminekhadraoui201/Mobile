@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+        <color name="redBlood">#C72C41</color>   <!-- Rouge -->
+        <color name="white">#FFFFFF</color>       <!-- Blanc -->
+        <color name="lightGray">#F5F5F5</color>   <!-- Gris Clair -->
+        <color name="darkRed">#A71C2B</color>     <!-- Rouge Foncé -->
+
+
+
+</resources>
