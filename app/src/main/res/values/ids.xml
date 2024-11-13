@@ -9,4 +9,5 @@
     <item name="textViewTitle" type="id" />
     <item name="buttonSignIn" type="id" />
     <item name="buttonSignUp" type="id" />
+    <item name="recyclerView" type="id" />
 </resources>

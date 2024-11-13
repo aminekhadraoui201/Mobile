@@ -17,7 +17,7 @@ public class DossierMedicale {
     private String phoneNumber;
 
     // Constructor
-    public DossierMedicale(String name, String lastname, String address, String bloodType, String maladie, String phoneNumber) {
+    public DossierMedicale(int name, String lastname, String address, String bloodType, String maladie, String phoneNumber) {
         this.name = name;
         this.lastname = lastname;
         this.address = address;
