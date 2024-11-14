@@ -5,41 +5,65 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Input fields for adding a new RendezVous -->
-    <EditText
-        android:id="@+id/fullNameEditText"
+    <!-- Table Layout to organize input fields horizontally -->
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Full Name"
-        android:inputType="textPersonName" />
+        android:orientation="horizontal"
+        android:stretchColumns="1">
 
-    <EditText
-        android:id="@+id/noteEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Note"
-        android:inputType="text" />
+        <!-- Input fields for adding a new RendezVous -->
+        <TableRow>
+            <EditText
+                android:id="@+id/fullNameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Full Name"
+                android:inputType="textPersonName" />
+        </TableRow>
 
-    <EditText
-        android:id="@+id/typeRendezVousEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Type of RendezVous"
-        android:inputType="text" />
+        <TableRow>
+            <EditText
+                android:id="@+id/noteEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Note"
+                android:inputType="text" />
+        </TableRow>
 
-    <EditText
-        android:id="@+id/locationEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Location"
-        android:inputType="text" />
+        <TableRow>
+            <EditText
+                android:id="@+id/typeRendezVousEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Type of RendezVous"
+                android:inputType="text" />
+        </TableRow>
 
-    <EditText
-        android:id="@+id/dateEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Date"
-        android:inputType="text" />
+        <TableRow>
+            <EditText
+                android:id="@+id/locationEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Location"
+                android:inputType="text" />
+        </TableRow>
+
+        <TableRow>
+            <EditText
+                android:id="@+id/dateEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Date"
+                android:inputType="text" />
+        </TableRow>
+
+    </TableLayout>
 
     <!-- Button to add a new RendezVous -->
     <Button

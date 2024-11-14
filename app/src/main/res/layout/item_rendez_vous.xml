@@ -5,39 +5,68 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/fullNameTextView"
-        android:layout_width="wrap_content"
+    <!-- Table Layout to organize TextViews horizontally -->
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Full Name"
-        android:textSize="16sp"/>
+        android:orientation="horizontal"
+        android:stretchColumns="1">
 
-    <TextView
-        android:id="@+id/noteTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Note"
-        android:textSize="14sp"/>
+        <!-- Row for Full Name -->
+        <TableRow>
+            <TextView
+                android:id="@+id/fullNameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Full Name"
+                android:textSize="16sp"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/typeRendezVousTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Type"
-        android:textSize="14sp"/>
+        <!-- Row for Note -->
+        <TableRow>
+            <TextView
+                android:id="@+id/noteTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Note"
+                android:textSize="14sp"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/locationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Location"
-        android:textSize="14sp"/>
+        <!-- Row for Type of RendezVous -->
+        <TableRow>
+            <TextView
+                android:id="@+id/typeRendezVousTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Type"
+                android:textSize="14sp"/>
+        </TableRow>
 
-    <TextView
-        android:id="@+id/dateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Date"
-        android:textSize="14sp"/>
+        <!-- Row for Location -->
+        <TableRow>
+            <TextView
+                android:id="@+id/locationTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Location"
+                android:textSize="14sp"/>
+        </TableRow>
+
+        <!-- Row for Date -->
+        <TableRow>
+            <TextView
+                android:id="@+id/dateTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Date"
+                android:textSize="14sp"/>
+        </TableRow>
+
+    </TableLayout>
 
 </LinearLayout>

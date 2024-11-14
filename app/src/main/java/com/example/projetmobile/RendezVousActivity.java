@@ -10,6 +10,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.projetmobile.DAO.RendezVousDao;
+import com.example.projetmobile.Database.AppDataBase;
+import com.example.projetmobile.Entite.DossierMedicale;
 import com.example.projetmobile.Entite.RendezVous;
 import com.example.projetmobile.R;
 
@@ -21,6 +24,8 @@ public class RendezVousActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private RendezVousAdapter adapter;
     private List<RendezVous> rendezVousList;
+    private AppDataBase db;
+    private RendezVousDao rendezVousDao;
 
     private EditText fullNameEditText, noteEditText, typeRendezVousEditText, locationEditText, dateEditText;
     private Button addButton;
@@ -30,15 +35,8 @@ public class RendezVousActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rendez_vous);
 
+        // Initialize UI elements
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        // Initialize the list and adapter
-        rendezVousList = new ArrayList<>();
-        adapter = new RendezVousAdapter(rendezVousList);
-        recyclerView.setAdapter(adapter);
-
-        // Initialize input fields
         fullNameEditText = findViewById(R.id.fullNameEditText);
         noteEditText = findViewById(R.id.noteEditText);
         typeRendezVousEditText = findViewById(R.id.typeRendezVousEditText);
@@ -46,13 +44,49 @@ public class RendezVousActivity extends AppCompatActivity {
         dateEditText = findViewById(R.id.dateEditText);
         addButton = findViewById(R.id.addButton);
 
-        // Set up the button to add new RendezVous
+        // Set up RecyclerView
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Initialize database and DAO
+        db = AppDataBase.getinstance(this);
+        rendezVousDao = db.rendezVousDao();
+
+        // Initialize the adapter and set it to the RecyclerView
+        rendezVousList = new ArrayList<>();
+        adapter = new RendezVousAdapter(rendezVousList);
+        recyclerView.setAdapter(adapter);
+
+        // Add button listener to insert new RendezVous
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 addRendezVous();
             }
         });
+
+        // Load existing RendezVous data
+        loadRendezVousData();
+        ArrayList<Object> dossierList = new ArrayList<>();
+        adapter = new RendezVousAdapter(rendezVousList);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void loadRendezVousData() {
+        // Fetch the data from the database asynchronously
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                List<RendezVous> loadedData = rendezVousDao.getAllRendezVous();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        rendezVousList.clear();
+                        rendezVousList.addAll(loadedData);
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+            }
+        }).start();
     }
 
     private void addRendezVous() {
@@ -69,11 +103,20 @@ public class RendezVousActivity extends AppCompatActivity {
             // Create a new RendezVous object
             RendezVous newRendezVous = new RendezVous(fullName, note, typeRendezVous, location, date);
 
-            // Add the new RendezVous to the list
-            rendezVousList.add(newRendezVous);
-
-            // Notify the adapter to update the RecyclerView
-            adapter.notifyItemInserted(rendezVousList.size() - 1);
+            // Insert the new RendezVous into the database
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    rendezVousDao.insertRendezVous(newRendezVous);
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadRendezVousData();  // Reload the data to reflect the new entry
+                            Toast.makeText(RendezVousActivity.this, "RendezVous added successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }).start();
 
             // Clear the input fields
             fullNameEditText.setText("");

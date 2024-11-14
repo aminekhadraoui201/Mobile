@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projetmobile.Entite.RendezVous;
-import com.example.projetmobile.R;
 
 import java.util.List;
 

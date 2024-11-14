@@ -30,8 +30,10 @@ public abstract class AppDataBase extends RoomDatabase {
         public void migrate(SupportSQLiteDatabase database) {
             // Example: Add a new column to the DossierMedicale table
             database.execSQL("ALTER TABLE DossierMedicale ADD COLUMN new_column INTEGER DEFAULT 0 NOT NULL");
+            database.execSQL("ALTER TABLE RendezVous ADD COLUMN new_column INTEGER DEFAULT 0 NOT NULL");
         }
     };
+
 
     public static AppDataBase getinstance(Context context) {
         if (instance == null) {
