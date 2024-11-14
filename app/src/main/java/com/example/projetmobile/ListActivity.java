@@ -103,6 +103,27 @@ public class ListActivity extends AppCompatActivity {
             finish(); // Close the current ProfileActivity
             return true;
         }
+        else if (item.getItemId() == R.id.Donner) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ListActivity.this, ListActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }
+        else if (item.getItemId() == R.id.hopito) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ListActivity.this, ListHActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }
+        else if (item.getItemId() == R.id.feedbak) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ListActivity.this, FeedBack_List.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }

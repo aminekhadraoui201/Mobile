@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bakk"
-    android:padding="10dp">
+    >
 
   <!-- Toolbar -->
   <include
@@ -32,18 +32,19 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
+  <!-- Prénom -->
   <EditText
-      android:id="@+id/nom"
+      android:id="@+id/nomH"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginTop="2dp"
-      android:textSize="18sp"
+      android:layout_marginTop="24dp"
       android:inputType="text"
-      app:layout_constraintTop_toBottomOf="@+id/textView"
+      android:textSize="18sp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent" />
+      app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-  <!-- Prénom -->
   <EditText
       android:id="@+id/prenom"
       android:layout_width="0dp"
@@ -51,7 +52,7 @@
       android:layout_marginTop="16dp"
       android:textSize="18sp"
       android:inputType="text"
-      app:layout_constraintTop_toBottomOf="@+id/nom"
+      app:layout_constraintTop_toBottomOf="@+id/nomH"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
 
@@ -68,7 +69,7 @@
 
   <!-- Email -->
   <EditText
-      android:id="@+id/email"
+      android:id="@+id/emailH"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
@@ -80,25 +81,25 @@
 
   <!-- Lieu -->
   <EditText
-      android:id="@+id/lieu"
+      android:id="@+id/lieuH"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:textSize="18sp"
       android:inputType="text"
-      app:layout_constraintTop_toBottomOf="@+id/email"
+      app:layout_constraintTop_toBottomOf="@+id/emailH"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
 
   <!-- Mot de passe -->
   <EditText
-      android:id="@+id/pass"
+      android:id="@+id/passH"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginTop="16dp"
       android:textSize="18sp"
       android:inputType="textVisiblePassword"
-      app:layout_constraintTop_toBottomOf="@+id/lieu"
+      app:layout_constraintTop_toBottomOf="@+id/lieuH"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
 
@@ -110,58 +111,24 @@
       android:layout_marginTop="16dp"
       android:textSize="18sp"
       android:inputType="textVisiblePassword"
-      app:layout_constraintTop_toBottomOf="@+id/pass"
+      app:layout_constraintTop_toBottomOf="@+id/passH"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
 
   <!-- Bouton modifier les informations -->
-  <Button
-      android:id="@+id/editButton"
-      android:layout_width="112dp"
-      android:layout_height="125dp"
-      android:layout_marginTop="24dp"
-      android:backgroundTint="#C72C41"
-      android:text="Modifier les Informations"
-      android:textColor="#FFFFFF"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/cpass" />
 
   <!-- Bouton informations du dossier médical -->
 
   <!-- Bouton Déconnexion -->
 
   <Button
-      android:id="@+id/medicale"
-      android:layout_width="125dp"
-      android:layout_height="126dp"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="24dp"
+      android:id="@+id/editButtonH"
+      android:layout_width="363dp"
+      android:layout_height="58dp"
+      android:layout_marginStart="12dp"
+      android:layout_marginTop="52dp"
       android:backgroundTint="#C72C41"
-      android:text="Les Informations du dossier médical"
-      android:textColor="#FFFFFF"
-      app:layout_constraintStart_toEndOf="@+id/editButton"
-      app:layout_constraintTop_toBottomOf="@+id/cpass" />
-
-  <Button
-      android:id="@+id/rdv"
-      android:layout_width="128dp"
-      android:layout_height="126dp"
-      android:layout_marginTop="24dp"
-      android:layout_marginEnd="12dp"
-      android:backgroundTint="#C72C41"
-      android:text="Prise de Rende-Vous"
-      android:textColor="#FFFFFF"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/cpass" />
-
-  <Button
-      android:id="@+id/logoutButton"
-      android:layout_width="128dp"
-      android:layout_height="51dp"
-      android:layout_marginStart="276dp"
-      android:layout_marginTop="152dp"
-      android:backgroundTint="@color/redBlood"
-      android:text="Déconnexion"
+      android:text="Modifier les Informations"
       android:textColor="#FFFFFF"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/cpass" />

@@ -3,8 +3,12 @@ package com.example.projetmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +24,7 @@ import java.util.List;
 import java.util.concurrent.Executors;
 
 public class ViewRequestsActivity extends AppCompatActivity {
+    private EditText nom, email, pass, lieu, editTextDate;
 
     private RecyclerView recyclerView;
     private AdapterDemand adapter;
@@ -29,6 +34,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_requests);
+        // Toolbar
 
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
@@ -58,7 +64,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
         });
 
 
-        Button add = findViewById(R.id.aju);
+        Button add = findViewById(R.id.retrnH);
 
 
         // OnClickListener pour le bouton Liste Des Rendez-vous
@@ -66,7 +72,7 @@ public class ViewRequestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Remplacer par l'intention vers l'activité correspondante
-                Intent intent = new Intent(ViewRequestsActivity.this, AddOrEditRequestActivity.class);
+                Intent intent = new Intent(ViewRequestsActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -141,5 +147,55 @@ public class ViewRequestsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         loadRequests(); // Refresh the list when returning to this activity
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu ){
+
+        MenuInflater menuInflater= new MenuInflater(this);
+        menuInflater.inflate(R.menu.menhopital,menu);
+
+        return true;
+
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.profil) {
+            // Lors de la navigation vers une autre activité (par exemple, depuis HopitalActivity)
+            Intent intent = new Intent(ViewRequestsActivity.this, HopitalActivity.class);
+
+            startActivity(intent);
+            finish();  // Ferme l'activité actuelle
+            return true;
+        } else if (item.getItemId() == R.id.deco) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ViewRequestsActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.ajouDon) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ViewRequestsActivity.this, AddOrEditRequestActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.ListeDon) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ViewRequestsActivity.this, ViewRequestsActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.deco) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ViewRequestsActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

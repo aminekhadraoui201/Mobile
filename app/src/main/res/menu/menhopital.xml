@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/ListeDon"
+        android:title="Liste de Don"/>
+    <item android:id="@+id/ajouDon"
+        android:title="Ajoute un Don"/>
+    <item android:id="@+id/dossieM"
+        android:title="Les Dossies Medicales"/>
+    <item android:id="@+id/profil"
+        android:title="Profil"/>
+    <item android:id="@+id/deco"
+        android:title="Deconnexion"/>
+</menu>

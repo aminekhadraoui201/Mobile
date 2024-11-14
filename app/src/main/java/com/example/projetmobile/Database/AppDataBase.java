@@ -9,7 +9,9 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 
 import com.example.projetmobile.DAO.BloodRequestDao;
+import com.example.projetmobile.DAO.DossierMedicaleDao;
 import com.example.projetmobile.DAO.FeedBackDao;
+import com.example.projetmobile.DAO.RendezVousDao;
 import com.example.projetmobile.DAO.UserDao;
 import com.example.projetmobile.Entite.BloodRequest;
 import com.example.projetmobile.Entite.DossierMedicale;
@@ -24,7 +26,8 @@ public static AppDataBase instance;
 public abstract UserDao userDao();
 public abstract FeedBackDao feedBackDao();
     public abstract BloodRequestDao bloodRequestDao();
-
+    public abstract DossierMedicaleDao dossierMedicaleDao();
+    public abstract RendezVousDao rendezVousDao();
 
 
     public static AppDataBase getinstance(Context context) {

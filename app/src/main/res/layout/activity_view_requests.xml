@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tool_bar"
@@ -29,12 +35,20 @@
         android:layout_marginBottom="40dp"
         android:backgroundTint="@color/darkRed"
         android:text="->" />
-
     <Button
-        android:id="@+id/aju"
-        android:layout_width="75dp"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:id="@+id/retrnH"
+        android:layout_width="93dp"
+        android:layout_height="58dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/darkRed"
+        android:text="->" />
+
+<!--    <Button-->
+<!--        android:id="@+id/aju"-->
+<!--        android:layout_width="75dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Button" />-->
 
 
 </LinearLayout>

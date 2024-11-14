@@ -44,11 +44,11 @@ public class RegistActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(adapter);
 ///////////////////////
-        nom = findViewById(R.id.nom);
+        nom = findViewById(R.id.nomH);
         prenom = findViewById(R.id.prenom);
-        email = findViewById(R.id.email);
+        email = findViewById(R.id.emailH);
         motPass = findViewById(R.id.mot_pass);
-        lieu = findViewById(R.id.lieu);
+        lieu = findViewById(R.id.lieuH);
         roleSpinner = findViewById(R.id.Spinner_role);
         dateNaissance = findViewById(R.id.datnaiss);
         btnSignUp = findViewById(R.id.btnSignUp);
@@ -115,7 +115,7 @@ public class RegistActivity extends AppCompatActivity {
         Toast.makeText(this, "Registration successful", Toast.LENGTH_SHORT).show();
 
         // Redirect to MainActivity or login screen
-        startActivity(new Intent(RegistActivity.this, ProfileActivity.class));
+        startActivity(new Intent(RegistActivity.this, LoginActivity.class));
         finish();
     }
     // Fonction pour valider le format de l'email

@@ -13,7 +13,7 @@
         android:layout_height="76dp"
         android:src="@drawable/donation" />
     <EditText
-        android:id="@+id/nom"
+        android:id="@+id/nomH"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="nom"
@@ -25,7 +25,7 @@
         android:hint="prenom"
         android:inputType="text" />
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailH"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
@@ -39,7 +39,7 @@
 
 
     <EditText
-        android:id="@+id/lieu"
+        android:id="@+id/lieuH"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Lieu"

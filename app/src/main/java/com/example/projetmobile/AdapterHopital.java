@@ -16,24 +16,6 @@ import com.example.projetmobile.Entite.User;
 
 import java.util.List;
 
-
-
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.projetmobile.Database.AppDataBase;
-import com.example.projetmobile.Entite.User;
-
-import java.util.List;
-
 public class AdapterHopital extends RecyclerView.Adapter<AdapterHopital.MyViewHolder> {
     private Context context;
     private List<User> users;
@@ -75,7 +57,7 @@ public class AdapterHopital extends RecyclerView.Adapter<AdapterHopital.MyViewHo
         Button supp;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            nom=itemView.findViewById(R.id.nom);
+            nom=itemView.findViewById(R.id.nomH);
             prenom=itemView.findViewById(R.id.prenom);
             supp=itemView.findViewById(R.id.supp);
 

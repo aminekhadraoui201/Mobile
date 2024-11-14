@@ -6,58 +6,60 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-    <Spinner
-        android:id="@+id/spinner_blood_center"
+    <!-- Input Fields for New DossierMedicale -->
+    <EditText
+        android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/blood_centers"
-        android:layout_marginBottom="16dp" />
-
-    <Spinner
-        android:id="@+id/spinner_blood_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:entries="@array/blood_groups"
-        android:layout_marginBottom="16dp" />
+        android:hint="Name" />
 
     <EditText
-        android:id="@+id/input_contact_info"
+        android:id="@+id/lastnameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contact Info" />
+        android:hint="Last Name" />
 
     <EditText
-        android:id="@+id/input_quantity"
+        android:id="@+id/addressEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Quantity" />
+        android:hint="Address" />
 
     <EditText
-        android:id="@+id/input_date"
+        android:id="@+id/bloodTypeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date (MM/DD/YYYY)" />
+        android:hint="Blood Type" />
 
-    <CheckBox
-        android:id="@+id/checkbox_urgency"
+    <EditText
+        android:id="@+id/maladieEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Maladie" />
+
+    <EditText
+        android:id="@+id/phoneNumberEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone Number" />
+
+    <!-- Button to Add a New DossierMedicale -->
+    <Button
+        android:id="@+id/addButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#C72C41"
-        android:text="Urgent" />
+        android:text="Add Dossier Medicale" />
 
-    <Button
-        android:id="@+id/btn_submit_request"
+    <!-- RecyclerView to Display the List of DossierMedicale -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Submit"
-        android:backgroundTint="#C72C41" />
+        android:layout_height="match_parent" />
+
 </LinearLayout>

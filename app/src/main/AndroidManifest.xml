@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +16,12 @@
         android:theme="@style/Theme.ProjetMobile"
         tools:targetApi="31">
         <activity
+            android:name=".RendezVousActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DossierMedicaleActivity"
+            android:exported="false" />
+        <activity
             android:name=".HopitalActivity"
             android:exported="false" />
         <activity
@@ -22,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".Admin"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".AddOrEditRequestActivity"
             android:exported="false" />

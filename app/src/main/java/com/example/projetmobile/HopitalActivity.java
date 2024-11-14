@@ -3,6 +3,9 @@ package com.example.projetmobile;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,25 +30,24 @@ public class HopitalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_hopital);
+        // Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         // Initialiser les champs EditText
-        nom = findViewById(R.id.nom);
-        email = findViewById(R.id.email);
-        pass = findViewById(R.id.pass);
-        lieu = findViewById(R.id.lieu);
+        nom = findViewById(R.id.nomH);
+        email = findViewById(R.id.emailH);
+        pass = findViewById(R.id.passH);
+        lieu = findViewById(R.id.lieuH);
 
         // Initialiser le bouton de déconnexion et de mise à jour
-        logoutButton = findViewById(R.id.logoutButton);
-        editButton = findViewById(R.id.editButton);
-        don = findViewById(R.id.adddon);
-        ldon = findViewById(R.id.listDon);
+        editButton = findViewById(R.id.editButtonH);
+
 
         // Récupérer les données envoyées via l'Intent
         Intent intent = getIntent();
         int userId = intent.getIntExtra("user_id",0);
         String userName = intent.getStringExtra("user_nom");
-        String userPrenom = intent.getStringExtra("user_prenom");
         String userEmail = intent.getStringExtra("user_email");
-        String userDateNaiss = intent.getStringExtra("user_datnaiss");
         String userPassword = intent.getStringExtra("user_Mot_pass");
         String userLieu = intent.getStringExtra("user_lieu");
 
@@ -54,13 +56,11 @@ public class HopitalActivity extends AppCompatActivity {
         email.setText(userEmail);
         pass.setText(userPassword);
         lieu.setText(userLieu);
-        editTextDate.setText(userDateNaiss);
+
         // Initialiser l'instance de la base de données
         appDataBase = AppDataBase.getinstance(this);
 
-        // Toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         // Gestion du bouton de déconnexion
         logoutButton.setOnClickListener(new View.OnClickListener() {
@@ -72,24 +72,8 @@ public class HopitalActivity extends AppCompatActivity {
                 finish(); // Fermer l'activité de profil
             }
         });
-        don.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Retour à LoginActivity
-                Intent intent = new Intent(HopitalActivity.this, AddOrEditRequestActivity.class);
-                startActivity(intent);
-                finish(); // Fermer l'activité de profil
-            }
-        });
-        ldon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Retour à LoginActivity
-                Intent intent = new Intent(HopitalActivity.this, ViewRequestsActivity.class);
-                startActivity(intent);
-                finish(); // Fermer l'activité de profil
-            }
-        });
+
+
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +82,6 @@ public class HopitalActivity extends AppCompatActivity {
                 String updatedEmail = email.getText().toString();
                 String updatedPassword = pass.getText().toString();
                 String updatedLieu = lieu.getText().toString();
-                String updatedDateNaiss = editTextDate.getText().toString();
 
                 // Valider les champs avant de mettre à jour
                 if (updatedNom.isEmpty()  || updatedEmail.isEmpty() || updatedPassword.isEmpty()) {
@@ -119,12 +102,11 @@ public class HopitalActivity extends AppCompatActivity {
                 }
 
                 // Créer l'objet utilisateur mis à jour
-                User updatedUser = new User(userId, updatedNom,"",  updatedEmail, updatedPassword, updatedDateNaiss, "", updatedLieu);
+                User updatedUser = new User(userId, updatedNom,"",  updatedEmail, updatedPassword, "", "", updatedLieu);
 
                 try {
                     // Tentative de mise à jour de l'utilisateur dans la base de données
                     int rowsUpdated = appDataBase.userDao().updateUser(updatedUser);  // Met à jour l'utilisateur
-                    Log.e("test", "Updated User: ID=" + userId + ", Name=" + updatedNom  + ", Email=" + updatedEmail + ", DateNaiss=" + updatedDateNaiss + ", Lieu=" + updatedLieu);
                     // Vérifier si la mise à jour a réussi
                     if (rowsUpdated > 0) {
                         // Afficher un message de confirmation
@@ -146,14 +128,64 @@ public class HopitalActivity extends AppCompatActivity {
             }
         });
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
     }
     // Fonction pour vérifier le format de l'email
     private boolean isValidEmail(String email) {
         return email.contains("@") && email.contains(".");
+    }
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu ){
+
+        MenuInflater menuInflater= new MenuInflater(this);
+        menuInflater.inflate(R.menu.menhopital,menu);
+
+        return true;
+
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.profil) {
+          
+            // Lors de la navigation vers une autre activité (par exemple, depuis HopitalActivity)
+            Intent intent = new Intent(HopitalActivity.this, HopitalActivity.class);
+            intent.putExtra("user_nom", nom.getText().toString());
+            intent.putExtra("user_email", email.getText().toString());
+            intent.putExtra("user_Mot_pass", pass.getText().toString());
+            intent.putExtra("user_lieu", lieu.getText().toString());
+            startActivity(intent);
+            finish();  // Ferme l'activité actuelle
+
+            return true;
+        } else if (item.getItemId() == R.id.deco) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(HopitalActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.ajouDon) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(HopitalActivity.this, AddOrEditRequestActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.ListeDon) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(HopitalActivity.this, ViewRequestsActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.deco) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(HopitalActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -43,5 +43,11 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation ("androidx.room:room-runtime:2.5.0")
     annotationProcessor ("androidx.room:room-compiler:2.5.0")
+        implementation ("androidx.biometric:biometric:1.1.0")
+
+
+
+
+
 
 }

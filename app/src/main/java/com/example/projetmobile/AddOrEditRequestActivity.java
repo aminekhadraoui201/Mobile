@@ -1,7 +1,11 @@
 package com.example.projetmobile;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -10,6 +14,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -33,7 +38,9 @@ public class AddOrEditRequestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_or_edit_request);
-
+        // Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         db = AppDataBase.getinstance(this);
 
         // Initialize UI components
@@ -132,5 +139,54 @@ public class AddOrEditRequestActivity extends AppCompatActivity {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu ){
+
+        MenuInflater menuInflater= new MenuInflater(this);
+        menuInflater.inflate(R.menu.menhopital,menu);
+
+        return true;
+
+    }
+
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.profil) {
+            // Lors de la navigation vers une autre activité (par exemple, depuis HopitalActivity)
+            Intent intent = new Intent(AddOrEditRequestActivity.this, HopitalActivity.class);
+            startActivity(intent);
+            finish();  // Ferme l'activité actuelle
+            return true;
+        } else if (item.getItemId() == R.id.deco) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(AddOrEditRequestActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.ajouDon) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(AddOrEditRequestActivity.this, AddOrEditRequestActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.ListeDon) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(AddOrEditRequestActivity.this, ViewRequestsActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }else if (item.getItemId() == R.id.deco) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(AddOrEditRequestActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

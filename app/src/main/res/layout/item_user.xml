@@ -17,7 +17,7 @@
 
         <!-- Objet du Feedback -->
         <TextView
-            android:id="@+id/nom"
+            android:id="@+id/nomH"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nom"

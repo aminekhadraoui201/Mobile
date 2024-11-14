@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <item android:id="@+id/Donner"
+        android:title="Les Donneurs"/>
+    <item android:id="@+id/hopito"
+        android:title="Les Des Hopitaux"/>
+
+    <item android:id="@+id/feedbak"
+        android:title="Les Feedback"/>
+
+
 
 <item android:id="@+id/profil"
     android:title="Profil"/>

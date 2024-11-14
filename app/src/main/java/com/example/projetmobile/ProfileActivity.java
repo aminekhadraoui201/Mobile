@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,17 +27,17 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.profile);
 
         // Initialiser les champs EditText
-        nom = findViewById(R.id.nom);
+        nom = findViewById(R.id.nomH);
         prenom = findViewById(R.id.prenom);
-        email = findViewById(R.id.email);
-        pass = findViewById(R.id.pass);
+        email = findViewById(R.id.emailH);
+        pass = findViewById(R.id.passH);
         cpass = findViewById(R.id.cpass);
-        lieu = findViewById(R.id.lieu);
+        lieu = findViewById(R.id.lieuH);
         editTextDate = findViewById(R.id.editTextDate);
 
         // Initialiser le bouton de déconnexion et de mise à jour
-        logoutButton = findViewById(R.id.logoutButton);
-        editButton = findViewById(R.id.editButton);
+
+        editButton = findViewById(R.id.editButtonH);
         rdv =findViewById(R.id.rdv);
 
         // Récupérer les données envoyées via l'Intent
@@ -65,25 +66,8 @@ public class ProfileActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Gestion du bouton de déconnexion
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Retour à LoginActivity
-                Intent intent = new Intent(ProfileActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish(); // Fermer l'activité de profil
-            }
-        });
-        rdv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Retour à LoginActivity
-                Intent intent = new Intent(ProfileActivity.this, AddOrEditRequestActivity.class);
-                startActivity(intent);
-                finish(); // Fermer l'activité de profil
-            }
-        });
+
+
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,10 +132,29 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = new MenuInflater(this);
-        menuInflater.inflate(R.menu.mpd, menu);
+        menuInflater.inflate(R.menu.menudonneur, menu);
         return true;
     }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.profil) {
+            // Lors de la navigation vers une autre activité (par exemple, depuis HopitalActivity)
+            Intent intent = new Intent(ProfileActivity.this, ProfileActivity.class);
+            startActivity(intent);
+            finish();  // Ferme l'activité actuelle
+            return true;
+        } else if (item.getItemId() == R.id.deco) {
+            // Handle "Deconnexion" (Logout) menu item click
+            Intent logoutIntent = new Intent(ProfileActivity.this, LoginActivity.class);
+            startActivity(logoutIntent);
+            finish(); // Close the current ProfileActivity
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
     // Fonction pour vérifier le format de l'email
     private boolean isValidEmail(String email) {
         return email.contains("@") && email.contains(".");
