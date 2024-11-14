@@ -70,7 +70,8 @@
         android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add RendezVous" />
+        android:text="Add RendezVous"
+        android:backgroundTint="@color/darkRed"/>
 
     <!-- RecyclerView for displaying the list -->
     <androidx.recyclerview.widget.RecyclerView

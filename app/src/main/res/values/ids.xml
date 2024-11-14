@@ -29,4 +29,5 @@
     <item name="typeRendezVousEditText" type="id" />
     <item name="locationEditText" type="id" />
     <item name="dateEditText" type="id" />
+    <item name="addressTextView" type="id" />
 </resources>

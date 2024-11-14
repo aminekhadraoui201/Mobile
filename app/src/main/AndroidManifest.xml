@@ -15,11 +15,8 @@
         <activity
             android:name=".RendezVousActivity"
             android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <!-- Main launcher activity -->
         <activity
@@ -46,7 +43,11 @@
         <activity
             android:name=".DossierMedicaleActivity"
             android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

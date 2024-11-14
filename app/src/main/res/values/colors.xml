@@ -6,6 +6,10 @@
         <color name="white">#FFFFFF</color>       <!-- Blanc -->
         <color name="lightGray">#F5F5F5</color>   <!-- Gris Clair -->
         <color name="darkRed">#A71C2B</color>     <!-- Rouge Foncé -->
+        <color name="redBackground">#FF0000</color>
+        <color name="redLight">#FFCCCC</color>
+        <color name="red">#FF0000</color>
+
 
 
 
